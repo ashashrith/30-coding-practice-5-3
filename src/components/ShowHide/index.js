@@ -5,13 +5,14 @@ import {Component} from 'react'
 import './index.css'
 
 class ShowHide extends Component {
-  state = {show: true}
+  state = {show: true, see: true}
 
   onFirstName = () => {
-    const {show} = this.state
-    let firstName
+    const {show, see} = this.state
+    this.setState({show: false})
+
     if (show === true) {
-      firstName = (
+      const firstName = (
         <div className="mini">
           <h1 className="head">Joe</h1>
         </div>
@@ -21,10 +22,11 @@ class ShowHide extends Component {
   }
 
   onLastName = () => {
-    const {show} = this.state
-    let lastName
-    if (show === true) {
-      lastName = (
+    const {see, show} = this.state
+    this.setState({see: false})
+
+    if (see === true) {
+      const lastName = (
         <div className="mini">
           <h1 className="head">Jonas</h1>
         </div>
@@ -34,7 +36,7 @@ class ShowHide extends Component {
   }
 
   render() {
-    const {show} = this.state
+    const {show, see} = this.state
 
     return (
       <div className="bg-container">
